@@ -1,0 +1,12 @@
+{
+  "name": "neighborhood-map",
+  "version": "1.0.0",
+  "description": "Map of interesting places",
+  "main": "index.html",
+  "dependencies": {
+    "knockout": "^3.4.0"
+  },
+  "devDependencies": {},
+  "author": "Valerii Zinchenko",
+  "license": "MIT"
+}

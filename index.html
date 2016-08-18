@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0,width=device-width">
+
+	<title>Neighborhood map</title>
+
+	<link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+	<main>
+	<input type="text" placeholder="Search your place" data-bind="value: filter, valueUpdate: 'keyup', event: {keyup: onFilter}">
+		<div id="places" data-bind="foreach: places">
+			<div data-bind="text: place"></div>
+		</div>
+		<div id="map">Sorry, Google Map is not reachable for now. Please check your internet connection.</div>
+	</main>
+	
+	<!-- libs -->
+	<script src="node_modules/knockout/build/output/knockout-latest.js"></script>
+	<script src="node_modules/jquery/dist/jquery.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?libraries=places" async defer></script>
+
+	<!-- APIs -->
+	<script src="js/GMap.js"></script>
+	<script src="js/Wiki.js"></script>
+
+	<!-- application scripts -->
+	<script src="js/db.js"></script>
+	<script src="js/models.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
