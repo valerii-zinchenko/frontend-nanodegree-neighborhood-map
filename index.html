@@ -9,12 +9,23 @@
 	<link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
-	<main>
-	<input type="text" placeholder="Search your place" data-bind="value: filter, valueUpdate: 'keyup', event: {keyup: onFilter}">
-		<div id="places" data-bind="foreach: places">
-			<div data-bind="text: place"></div>
+	<nav id="navigation">
+		<div class="menu">
+			<input id="filter" type="text" placeholder="Search your place" data-bind="value: filter, valueUpdate: 'keyup', event: {keyup: onFilter}">
+			<ul id="places" data-bind="foreach: places">
+				<li><a href="#" data-bind="text: location, event: {click: onClick}"></a></li>
+			</ul>
 		</div>
-		<div id="map">Sorry, Google Map is not reachable for now. Please check your internet connection.</div>
+	</nav>
+	<main>
+		<a id="menu">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+				<path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"></path>
+			</svg>
+		</a>
+		<div class="map-container">
+			<div id="map">Sorry, Google Map is not reachable for now. Please check your internet connection.</div>
+		</div>
 	</main>
 	
 	<!-- libs -->
