@@ -19,6 +19,19 @@ Place.prototype.activate = function(toActivate) {
 	});
 };
 
+Place.prototype.click = function() {
+	this._plugins.forEach(function(plugin) {
+		plugin.click();
+	});
+};
+
+function Item(place) {
+	this.place = place;
+	this.location = place.location;
+}
+Item.prototype.onClick = function(item) {
+	item.place.click();
+};
 
 function Filter(places) {
 	this._allPlaces = [];
@@ -39,7 +52,7 @@ Filter.prototype.addPlace = function(place) {
 };
 
 Filter.prototype.filterPlaces = function(strPattern) {
-	var pattern = new RegExp(strPattern);
+	var pattern = new RegExp(strPattern, 'i');
 
 	this.places.removeAll();
 	this._allPlaces.forEach(function(item) {
@@ -47,7 +60,7 @@ Filter.prototype.filterPlaces = function(strPattern) {
 
 		item.activate(isFiltered);
 		if (isFiltered) {
-			this.places.push({place: item.location});
+			this.places.push(new Item(item));
 		}
 	}, this);
 };
