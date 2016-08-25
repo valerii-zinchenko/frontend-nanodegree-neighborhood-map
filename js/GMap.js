@@ -9,7 +9,9 @@
  * @param {Function} [additionalPlugin] - function for getting additional info about the marked place
  */
 var Map = function(element, places, additionalPlugin) {
-	this._map = new google.maps.Map(element);
+	this._map = new google.maps.Map(element, {
+		disableDefaultUI: true
+	});
 	this._mapBounds = new google.maps.LatLngBounds();
 	this._infoWindow = new google.maps.InfoWindow();
 	this._service = new google.maps.places.PlacesService(this._map);
@@ -114,4 +116,8 @@ MarkerPlugin.prototype.activate = function(toActivate) {
 			? 'http://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png'
 			: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|555'
 	);
+};
+
+MarkerPlugin.prototype.click = function() {
+	google.maps.event.trigger(this.marker, 'click');
 };
