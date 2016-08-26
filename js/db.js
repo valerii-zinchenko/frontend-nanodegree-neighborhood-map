@@ -1,3 +1,8 @@
+/**
+ * List of places
+ *
+ * @type {String[]}
+ */
 var puredb = [
 	'National Philharmonic of Ukraine',
 	'Palace of Sports, Kiev ',

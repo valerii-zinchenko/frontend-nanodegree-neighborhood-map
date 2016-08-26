@@ -102,6 +102,12 @@ Map.prototype.createMapMarker = function(place, placeData) {
 	});
 };
 
+/**
+ * Marker plagin for additional functionality pver Google Marker
+ *
+ * @param {Object} placeData - Google search result
+ * @param {Object} map - Google Map
+ */
 function MarkerPlugin(placeData, map) {
 	this.marker = new google.maps.Marker({
 		map: map,
@@ -110,6 +116,11 @@ function MarkerPlugin(placeData, map) {
 	});
 }
 
+/**
+ * Mark marker as active or not
+ *
+ * param {Boolean} toActivate - Activation flag
+ */
 MarkerPlugin.prototype.activate = function(toActivate) {
 	this.marker.setIcon(
 		toActivate
@@ -118,6 +129,9 @@ MarkerPlugin.prototype.activate = function(toActivate) {
 	);
 };
 
+/**
+ * Programmaticaly trigger click event on the marker
+ */
 MarkerPlugin.prototype.click = function() {
 	google.maps.event.trigger(this.marker, 'click');
 };
