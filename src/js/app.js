@@ -32,8 +32,12 @@ document.getElementById('places').addEventListener('click', function(ev) {
 
 window.addEventListener('load', function() {
 	var mapEl = document.getElementById('map');
+
+	// this is the only place where the app will or will not work with Google Maps
 	if (window.google) {
 		new Map(mapEl, runtimeDB, Wiki);
+	} else {
+		mapEl.innerHTML = 'Sorry, Google Map is not reachable for now. Please check your internet connection.';
 	}
 });
 
