@@ -3,6 +3,14 @@
 module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
 
+	var fs = require('fs');
+	var _ = require('lodash');
+	var inline = function(path) {
+		var text = fs.readFileSync(__dirname + '/dest/' + path);
+
+		return _.template(text)(this);
+	};
+
 	grunt.initConfig({
 		uglify: {
 			minall: {
@@ -28,12 +36,22 @@ module.exports = function(grunt) {
 			}
 		},
 
-		copy: {
-			dist: {
-				files: {
-					'dest/index.html': 'src/index_prod.html'
-				}
-			}
+		template: {
+			options: {
+				inline: inline
+			},
+			dev: {
+				options: {
+					isDEV: true
+				},
+				'src/index.html': 'src/index_template.html'
+			},
+			prod: {
+				options: {
+					isDEV: false
+				},
+				'dest/index.html': 'src/index_template.html'
+			},
 		},
 
 		clean: {
@@ -43,5 +61,5 @@ module.exports = function(grunt) {
 		}
 	});
 
-	grunt.registerTask('default', ['clean', 'uglify', 'cssmin', 'copy']);
+	grunt.registerTask('default', ['clean', 'uglify', 'cssmin', 'template']);
 };
