@@ -12,6 +12,10 @@ body {
 	margin: 0;
 }
 
+.hidden {
+	display: none;
+}
+
 nav {
 	z-index: 1;
 	background-color: #555;
@@ -51,6 +55,10 @@ nav.open {
 #places > li > a {
 	color: inherit;
 	text-decoration: none;
+}
+
+.warnings {
+	font-size: 0.8em;
 }
 
 #menu {

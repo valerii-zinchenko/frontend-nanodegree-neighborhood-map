@@ -53,6 +53,8 @@ Map.prototype.markPlaces = function(places) {
 		_this._service.textSearch({query: place.location}, function(results, status) {
 			if (status === google.maps.places.PlacesServiceStatus.OK) {
 				_this.createMapMarker(place, results[0]);
+			} else {
+				place.addWarning('Google Map: nothing found');
 			}
 		});
 	});

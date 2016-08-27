@@ -7,6 +7,8 @@
  */
 function Place(location) {
 	this.location = location;
+	//this.warnings = [];
+	this.warnings = ko.observableArray([]);
 	this.isActive = true;
 
 	this._plugins = [];
@@ -33,6 +35,15 @@ Place.prototype.activate = function(toActivate) {
 	this._plugins.forEach(function(plugin) {
 		plugin.activate(toActivate);
 	});
+};
+
+/**
+ * Add some warning message to the place
+ *
+ * @param {String} warning - Warning message
+ */
+Place.prototype.addWarning = function(warning) {
+	this.warnings.push(warning);
 };
 
 /**

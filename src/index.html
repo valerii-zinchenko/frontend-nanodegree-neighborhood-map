@@ -13,7 +13,15 @@
 		<div class="menu">
 			<input id="filter" type="text" placeholder="Search your place" data-bind="value: filter, valueUpdate: 'keyup', event: {keyup: onFilter}">
 			<ul id="places" data-bind="foreach: places">
-				<li><a href="#" data-bind="text: location, event: {click: onClick}"></a></li>
+				<li>
+					<a href="#" data-bind="text: location, event: {click: onClick}"></a>
+					<div data-bind="css: {hidden: place.warnings().length === 0}">
+						<h5>Warnings:</h5>
+						<ul class="warnings" data-bind="foreach: place.warnings">
+							<li data-bind="text: $data"></li>
+						</ul>
+					</div>
+				</li>
 			</ul>
 		</div>
 	</nav>
