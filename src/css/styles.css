@@ -1,4 +1,9 @@
-html, body, nav, main, .map-container, #map {
+html,
+body,
+nav,
+main,
+.map-container,
+#map {
 	height: 100%;
 }
 
