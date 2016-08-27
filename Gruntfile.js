@@ -37,20 +37,26 @@ module.exports = function(grunt) {
 		},
 
 		template: {
-			options: {
-				inline: inline
-			},
 			dev: {
 				options: {
-					isDEV: true
+					data: {
+						isDEV: true
+					}
 				},
-				'src/index.html': 'src/index_template.html'
+				files: {
+					'src/index.html': 'src/index_template.html'
+				}
 			},
 			prod: {
 				options: {
-					isDEV: false
+					data: {
+						isDEV: false,
+						inline: inline
+					}
 				},
-				'dest/index.html': 'src/index_template.html'
+				files: {
+					'dest/index.html': 'src/index_template.html'
+				}
 			},
 		},
 
