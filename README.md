@@ -4,6 +4,8 @@ Google Maps is used to display favorite places and Wikipedia is used to display 
 
 The set of places is defined in `js/db.js`
 
+[Live](https://valerii-zinchenko.github.io/frontend-nanodegree-neighborhood-map/)
+
 ### Build and run
 
 #### Build
